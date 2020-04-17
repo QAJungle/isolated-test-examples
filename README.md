@@ -3,7 +3,7 @@
 Sample project for the next talks. 
 
 * ["Isolated & Integrated tests - A Mindset change"](https://slides.com/aaguila/isolated-integrated-tests) 
-* ["Designing a preventive strategy - With Isolated & Integrated tests"](https:/https://slides.com/aaguila/designing-a-preventive-strategy) 
+* ["Designing a preventive strategy - With Isolated & Integrated tests"](https://slides.com/aaguila/designing-a-preventive-strategy) 
 
 <img src="https://i.ibb.co/5MWhBkF/Screenshot-2019-11-07-at-13-01-16.png" alt="Isolated & Integrated tests" border="0">
 
