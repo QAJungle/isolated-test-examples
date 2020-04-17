@@ -1,6 +1,9 @@
 <h1> Isolated & Integrated test samples </h1>
 
-Sample project for the ["Isolated & Integrated Tests"](https://slides.com/aaguila/isolated-integrated-tests) talk. 
+Sample project for the next talks. 
+
+["Isolated & Integrated tests - A Mindset change"](https://slides.com/aaguila/isolated-integrated-tests) 
+["Designing a preventive strategy - With Isolated & Integrated tests"](https:/https://slides.com/aaguila/designing-a-preventive-strategy) 
 
 <img src="https://i.ibb.co/5MWhBkF/Screenshot-2019-11-07-at-13-01-16.png" alt="Isolated & Integrated tests" border="0">
 
@@ -43,7 +46,7 @@ Sample project for the ["Isolated & Integrated Tests"](https://slides.com/aaguil
 1. Run TKiero task with local profile:
 
     ```
-     ./gradlew clean build e2eTest -Pprofile=local
+     ./gradlew clean build e2eTest -Pprofile=isolated
     ```
 
 <h2>Front - Mount isolated environment</h2>
