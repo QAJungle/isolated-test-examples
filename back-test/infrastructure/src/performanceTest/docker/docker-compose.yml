@@ -1,0 +1,35 @@
+version: "3.1"
+
+services:
+  performance_web:
+    depends_on:
+      - performance_db
+      - performance_wiremock
+    build:
+      context: ./../../../
+      dockerfile: ./src/performanceTest/docker/Dockerfile
+      args:
+        - BACK_TEST_VERSION=1.0-SNAPSHOT
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8090:8080"
+  performance_wiremock:
+    image: rodolpheche/wiremock:latest
+    command: --global-response-templating
+    ports:
+      - "127.0.0.1:8091:8080"
+    volumes:
+      - ./mappings:/home/wiremock/mappings
+  performance_db:
+    image: postgres:11.2
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=back_test
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=back_test
+    volumes:
+      - performance-db:/var/lib/postgresql/data
+volumes:
+  performance-db:

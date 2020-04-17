@@ -1,0 +1,28 @@
+execution:
+  - scenario: get_prizes_and_save
+    concurrency:  10
+    throughput: 1
+    ramp-up: 15s
+    hold-for: 2m
+
+scenarios:
+  get_prizes_and_save:
+    timeout: 30s
+    default-address: 'http://localhost:8090'
+    headers:
+      Content-Type: application/json
+    requests:
+      - url: '/nobel_prizes/v1/?category=${category}&from=${from}&to=${to}'
+        method: GET
+    data-sources:
+      - path: 'datasource.csv'
+        variable-names: category, from, to
+
+reporting:
+  - module: blazemeter
+    test: Get prizes and save
+    project: Back app API
+  - module: passfail
+    criteria:
+      - avg-rt>1000ms for 10s, stop as failed
+      - fail>50% for 10s, stop as failed

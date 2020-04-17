@@ -1,0 +1,28 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+
+com:
+  qajungle:
+    talks:
+      integratedandisolated:
+        backtest:
+          infrastructure:
+            gateway:
+              apiUrl: 'http://api.nobelprize.org/v1'
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    open-in-view: false
+    properties.hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      event.merge.entity_copy_observer: allow
+      physical_naming_strategy: com.vladmihalcea.hibernate.type.util.CamelCaseToSnakeCaseNamingStrategy
+  datasource:
+    url: jdbc:postgresql://localhost:5432/back_test?serverTimezone=UTC
+    username: back_test
+    password: postgres

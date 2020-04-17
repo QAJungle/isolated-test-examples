@@ -1,0 +1,26 @@
+{
+  "request" : {
+    "urlPath" : "/v1/prize.json",
+    "method" : "GET",
+    "queryParameters" : {
+      "category" : {
+        "matches" : "^[a-zA-Z0-9]+"
+      },
+      "year" : {
+        "matches" : "[0-9]+"
+      },
+      "yearTo" : {
+        "matches" : "[0-9]+"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 400,
+    "body": "{\n\"prizes\": [\n{\n\"year\": \"{{{request.query.year.[0]}}}\",\n\"category\": \"{{{request.query.category.[0]}}}\",\n\"laureates\": [\n{\n\"id\": \"958\",\n\"firstname\": \"James P.\",\n\"surname\": \"Allison\",\n\"motivation\": \"\\\"for their discovery of cancer therapy by inhibition of negative immune regulation\\\"\",\n\"share\": \"2\"\n},\n{\n\"id\": \"959\",\n\"firstname\": \"Tasuku\",\n\"surname\": \"Honjo\",\n\"motivation\": \"\\\"for their discovery of cancer therapy by inhibition of negative immune regulation\\\"\",\n\"share\": \"2\"\n}\n]\n}\n]\n}",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  }
+}

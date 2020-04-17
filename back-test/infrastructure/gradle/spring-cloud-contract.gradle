@@ -1,0 +1,33 @@
+apply plugin:'spring-cloud-contract'
+
+dependencies {
+  testImplementation "org.springframework.cloud:spring-cloud-starter-contract-verifier:${springCloudContractVersion}"
+}
+
+contracts {
+  packageWithBaseClasses = 'com.qajungle.talks.integratedandisolated.backtest.contract.base'
+  basePackageForTests = 'com.qajungle.talks.integratedandisolated.backtest.contract.test'
+  testFramework = 'JUNIT5'
+  generatedTestSourcesDir = new File("${projectDir}/src/contractTest/java")
+  generatedTestResourcesDir = new File("${projectDir}/src/contractTest/resources")
+
+  baseClassMappings {
+    baseClassMapping(".*prizes.*.successfully.*", "com.qajungle.talks.integratedandisolated.backtest.contract.base.PrizesSuccessfullyBase")
+  }
+}
+
+sourceSets {
+  contractTest {
+    java {
+      srcDir 'src/contractTest/java'
+    }
+    resources {
+      srcDir 'src/contractTest/resources'
+    }
+    compileClasspath += sourceSets.test.runtimeClasspath
+  }
+}
+
+test {
+  exclude 'com/lookiero/quality/contract/base/**'
+}

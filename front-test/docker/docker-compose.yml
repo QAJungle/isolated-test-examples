@@ -1,0 +1,13 @@
+version: "3.1"
+services:
+  stubs:
+    image: springcloud/spring-cloud-contract-stub-runner:2.1.2.RELEASE
+    environment:
+      - STUBRUNNER_IDS=com.qajungle.talks.integratedandisolated.backtest:back-test.infrastructure:+:stubs:9876
+      - STUBRUNNER_STUBS_MODE=LOCAL
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8083:8083"
+      - "127.0.0.1:9876:9876"
+    volumes:
+      - ~/.m2:/root/.m2

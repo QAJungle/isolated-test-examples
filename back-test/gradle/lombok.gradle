@@ -1,0 +1,5 @@
+apply plugin: 'io.freefair.lombok'
+
+lombok {
+  generateLombokConfig.enabled = false
+}

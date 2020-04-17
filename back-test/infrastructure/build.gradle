@@ -1,0 +1,67 @@
+buildscript {
+  repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+      url System.getenv('TKIERO_REPO')
+      credentials {
+        username System.getenv('TKIERO_USER')
+        password System.getenv('TKIERO_PASSWORD')
+      }
+    }
+  }
+  dependencies {
+    classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:${springCloudContractVersion}"
+    classpath "com.lookiero:tkiero:${tkieroVersion}"
+    classpath "com.avast.gradle:gradle-docker-compose-plugin:${dockerComposePluginVersion}"
+  }
+}
+
+plugins {
+  id 'org.springframework.boot' version '2.1.6.RELEASE'
+  id 'maven-publish'
+}
+
+apply from:'gradle/springboot.gradle'
+apply from:'gradle/tkiero.gradle'
+apply from:'gradle/spring-cloud-contract.gradle'
+
+repositories {
+  maven {
+    url System.getenv('TKIERO_REPO')
+    credentials {
+      username System.getenv('TKIERO_USER')
+      password System.getenv('TKIERO_PASSWORD')
+    }
+  }
+}
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+  implementation "org.postgresql:postgresql:${postgresqlConnectorVersion}"
+
+  testImplementation "com.lookiero:tkiero:${tkieroVersion}"
+  testImplementation "org.testcontainers:junit-jupiter:${testContainerPostgreSQLVersion}"
+  testImplementation "org.testcontainers:postgresql:${testContainerPostgreSQLVersion}"
+
+  implementation project(':back-test.domain')
+  implementation project(':back-test.application')
+}
+
+processResources {
+  filesMatching('application.properties') {
+    expand(project.properties)
+  }
+}
+
+bootRun {
+  systemProperty 'spring.profiles.active', "${profile}"
+}
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+    }
+  }
+}

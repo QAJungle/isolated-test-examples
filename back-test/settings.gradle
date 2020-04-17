@@ -1,0 +1,10 @@
+rootProject.name = 'back-test'
+
+include 'back-test.domain'
+project(':back-test.domain').projectDir = file('domain')
+
+include 'back-test.application'
+project(':back-test.application').projectDir = file('application')
+
+include 'back-test.infrastructure'
+project(':back-test.infrastructure').projectDir = file('infrastructure')

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "nobel prizes",
+  "type": "object",
+  "properties": {
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string"
+    },
+    "prizes": {
+      "type": "array",
+      "items": {
+        "$ref": "prize_schema.json"
+      }
+    }
+  },
+  "required": ["from", "to", "category", "prizes"]
+}

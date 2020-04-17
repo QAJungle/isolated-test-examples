@@ -1,0 +1,32 @@
+version: "3.1"
+
+services:
+  back_test_web:
+    depends_on:
+      - back_test_db
+      - back_test_wiremock
+    build:
+      context: ./../../../../
+      dockerfile: ./src/e2eTest/resources/docker/Dockerfile
+      args:
+        - BACK_TEST_VERSION=$BACK_TEST_VERSION
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8090:8080"
+  back_test_db:
+    image: postgres:11.2
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=back_test
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=back_test
+    volumes:
+      - ./../../../../../infrastructure/src/e2eTest/resources/db/load_data.sql:/docker-entrypoint-initdb.d/load_data.sql
+  back_test_wiremock:
+    image: rodolpheche/wiremock:latest
+    ports:
+      - "127.0.0.1:8091:8080"
+    volumes:
+      - ./mappings:/home/wiremock/mappings

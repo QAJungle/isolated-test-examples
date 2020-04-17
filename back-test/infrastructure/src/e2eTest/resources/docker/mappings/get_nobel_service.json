@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/v1/prize.json?year=2018&yearTo=2020&category=medicine"
+  },
+  "response": {
+    "status": 200,
+    "body": "{\n\"prizes\": [\n{\n\"year\": \"2018\",\n\"category\": \"medicine\",\n\"laureates\": [\n{\n\"id\": \"958\",\n\"firstname\": \"James P.\",\n\"surname\": \"Allison\",\n\"motivation\": \"\\\"for their discovery of cancer therapy by inhibition of negative immune regulation\\\"\",\n\"share\": \"2\"\n},\n{\n\"id\": \"959\",\n\"firstname\": \"Tasuku\",\n\"surname\": \"Honjo\",\n\"motivation\": \"\\\"for their discovery of cancer therapy by inhibition of negative immune regulation\\\"\",\n\"share\": \"2\"\n}\n]\n}\n]\n}",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
