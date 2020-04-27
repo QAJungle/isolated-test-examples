@@ -1,19 +1,15 @@
 apply plugin: 'com.lookiero.tkiero'
-apply plugin: 'docker-compose'
 
 tkiero {
   testAPI = true
   testDB.postgresql = true
-}
 
-dockerCompose {
-  if(profile == "isolated") {
-    useComposeFiles = ['src/e2eTest/resources/docker/docker-compose.yml']
-    isRequiredBy(project.tasks.e2eTest)
-    buildBeforeUp = true
-    captureContainersOutput = true
-
-    environment.put "BACK_TEST_VERSION", version
+  testIsolation {
+    compose.enable = true
+    compose.executeOnlyWithProfile = "isolated"
+    compose.environmentVariables = ["PROFILE" : profile, "BACK_TEST_VERSION" : version]
+    compose.composeFiles = ['src/e2eTest/resources/docker/docker-compose.yml']
+    compose.captureOutput = true
   }
 }
 

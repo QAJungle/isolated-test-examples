@@ -39,12 +39,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
-    "@babel/core": "^7.6.2",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "cypress": "^3.6.0",
+    "cypress": "4.4.1",
     "jest": "^24.9.0",
     "jest-runner-groups": "^1.0.0",
     "react-test-renderer": "^16.11.0"

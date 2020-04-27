@@ -25,12 +25,13 @@ public class GetCategoryNobelPrizesByYearController {
       @RequestParam String category,
       @RequestParam String from,
       @RequestParam String to
-  ) {
+  ) throws InterruptedException {
     final var command = new GetCategoryNobelPrizesByYearCommand(
         category,
         Integer.parseInt(from),
         Integer.parseInt(to)
     );
+    Thread.sleep(2000);
     var nobelPrizes = getCategoryNobelPrizesByYear.execute(command);
     return ResponseEntity.ok(new GetCategoryNobelPrizesResponse(
         from, to, category, nobelPrizes)
