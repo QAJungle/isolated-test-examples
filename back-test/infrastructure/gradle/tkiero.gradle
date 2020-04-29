@@ -11,7 +11,19 @@ tkiero {
     compose.composeFiles = ['src/e2eTest/resources/docker/docker-compose.yml']
     compose.captureOutput = true
   }
+
+  report.allure.enable = true
 }
+
+allure {
+  autoconfigure = true
+  version = '2.13.3'
+  useJUnit5 {
+    version = '2.13.3'
+  }
+}
+
+e2eTest.finalizedBy 'allureReport'
 
 e2eTest {
   systemProperty 'profile', "${profile}"
