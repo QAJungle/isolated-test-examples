@@ -5,7 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^4.5.2",
     "@material-ui/icons": "^4.5.1",
+    "axios": "^0.19.2",
     "material-table": "^1.53.0",
+    "node-fetch": "^2.6.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-hook-form": "^3.26.5",
@@ -21,7 +23,9 @@
     "isolated:up": "./scripts/up_isolated.sh",
     "isolated:down": "./scripts/down_isolated.sh",
     "e2eTest": "./scripts/run_e2e.sh",
-    "prod": "serve -s build"
+    "prod": "serve -s build",
+    "test:pact": "npm t --detectOpenHandles --testRegex \"/*(.pact.js)\"",
+    "publish:pact": "node pact/publish.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,10 +46,12 @@
     "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.7.1",
     "@babel/preset-react": "^7.7.0",
+    "@pact-foundation/pact": "^9.2.1",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "cypress": "4.4.1",
     "jest": "^24.9.0",
+    "jest-pact": "^0.5.4",
     "jest-runner-groups": "^1.0.0",
     "react-test-renderer": "^16.11.0"
   },

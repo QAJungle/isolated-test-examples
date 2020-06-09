@@ -1,0 +1,19 @@
+server:
+  address: 127.0.0.1
+  port: 8888
+
+spring:
+  jpa:
+    generate-ddl: true
+    ddl-auto: update
+    properties.hibernate:
+      dialect: org.hibernate.dialect.H2Dialect
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+
+hibernate:
+  hbm2ddl:
+    auto: create

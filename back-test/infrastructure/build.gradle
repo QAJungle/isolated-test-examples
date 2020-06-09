@@ -43,10 +43,14 @@ repositories {
 dependencies {
   implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
   implementation "org.postgresql:postgresql:${postgresqlConnectorVersion}"
+  implementation "com.google.code.gson:gson:2.8.6"
+  implementation "com.h2database:h2:1.4.196"
 
   testImplementation "com.lookiero:tkiero:${tkieroVersion}"
   testImplementation "org.testcontainers:junit-jupiter:${testContainerPostgreSQLVersion}"
   testImplementation "org.testcontainers:postgresql:${testContainerPostgreSQLVersion}"
+
+  testImplementation "au.com.dius:pact-jvm-provider-junit5:4.0.10"
 
   implementation project(':back-test.domain')
   implementation project(':back-test.application')

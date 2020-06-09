@@ -1,0 +1,144 @@
+I, [2020-06-09T07:54:18.659940 #27369]  INFO -- : Registered expected interaction GET /nobel_prizes/v1?category=physics&from=2019&to=2020
+D, [2020-06-09T07:54:18.660222 #27369] DEBUG -- : {
+  "description": "a request for nobel prize winners",
+  "providerState": "i have a list of nobel prize winners",
+  "request": {
+    "method": "GET",
+    "path": "/nobel_prizes/v1",
+    "query": {
+      "category": [
+        "physics"
+      ],
+      "from": [
+        "2019"
+      ],
+      "to": [
+        "2020"
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "prizes": [
+        {
+          "firstname": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "test1"
+          },
+          "year": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "2019"
+          },
+          "surname": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "test1"
+          }
+        },
+        {
+          "firstname": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "test2"
+          },
+          "year": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "2019"
+          },
+          "surname": {
+            "json_class": "Pact::SomethingLike",
+            "contents": "test2"
+          }
+        }
+      ],
+      "from": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "2019"
+      },
+      "to": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "2020"
+      },
+      "category": {
+        "json_class": "Pact::SomethingLike",
+        "contents": "physics"
+      }
+    }
+  },
+  "metadata": null
+}
+I, [2020-06-09T07:54:18.666490 #27369]  INFO -- : Received request GET /nobel_prizes/v1?category=physics&from=2019&to=2020
+D, [2020-06-09T07:54:18.666603 #27369] DEBUG -- : {
+  "path": "/nobel_prizes/v1",
+  "query": "category=physics&from=2019&to=2020",
+  "method": "get",
+  "headers": {
+    "Accept": "*/*",
+    "User-Agent": "node-fetch/1.0 (+https://github.com/bitinn/node-fetch)",
+    "Accept-Encoding": "gzip,deflate",
+    "Connection": "close",
+    "Host": "127.0.0.1:55027",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2020-06-09T07:54:18.666922 #27369]  INFO -- : Found matching response for GET /nobel_prizes/v1?category=physics&from=2019&to=2020
+D, [2020-06-09T07:54:18.667092 #27369] DEBUG -- : {
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "prizes": [
+      {
+        "firstname": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "test1"
+        },
+        "year": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "2019"
+        },
+        "surname": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "test1"
+        }
+      },
+      {
+        "firstname": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "test2"
+        },
+        "year": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "2019"
+        },
+        "surname": {
+          "json_class": "Pact::SomethingLike",
+          "contents": "test2"
+        }
+      }
+    ],
+    "from": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "2019"
+    },
+    "to": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "2020"
+    },
+    "category": {
+      "json_class": "Pact::SomethingLike",
+      "contents": "physics"
+    }
+  }
+}
+I, [2020-06-09T07:54:18.679966 #27369]  INFO -- : Verifying - interactions matched
+I, [2020-06-09T07:54:18.683071 #27369]  INFO -- : Cleared interactions
+I, [2020-06-09T07:54:18.687927 #27369]  INFO -- : Updating pact for NobelPrizeProvider at /Users/aaguila/Repositories/personal/talks/integrated-and-isolated/front-test/pact/pacts/nobelprizeconsumer-nobelprizeprovider.json
+I, [2020-06-09T07:54:18.689860 #27369]  INFO -- : *****************************************************************************
+I, [2020-06-09T07:54:18.689957 #27369]  INFO -- : Updating existing file ./Users/aaguila/Repositories/personal/talks/integrated-and-isolated/front-test/pact/pacts/nobelprizeconsumer-nobelprizeprovider.json as pactfile_write_mode is :update
+I, [2020-06-09T07:54:18.690002 #27369]  INFO -- : Only interactions defined in this test run will be updated.
+I, [2020-06-09T07:54:18.690023 #27369]  INFO -- : As interactions are identified by description and provider state, pleased note that if either of these have changed, the old interactions won't be removed from the pact file until the specs are next run with :pactfile_write_mode => :overwrite.
+I, [2020-06-09T07:54:18.690041 #27369]  INFO -- : *****************************************************************************

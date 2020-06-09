@@ -28,8 +28,9 @@ const NobelPrizes = () => {
             from,
             to
         }
-  
-        findByCategoryAndYears({ payload })
+        const url = process.env.REACT_APP_BACK_API_URL;
+        
+        findByCategoryAndYears({ url, payload })
         .then(
           prizes  => {
             setPrizes(prizes)

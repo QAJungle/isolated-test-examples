@@ -1,0 +1,76 @@
+{
+  "consumer": {
+    "name": "NobelPrizeConsumer"
+  },
+  "provider": {
+    "name": "NobelPrizeProvider"
+  },
+  "interactions": [
+    {
+      "description": "a request for nobel prize winners",
+      "providerState": "i have a list of nobel prize winners",
+      "request": {
+        "method": "GET",
+        "path": "/nobel_prizes/v1",
+        "query": "category=physics&from=2019&to=2020"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "prizes": [
+            {
+              "firstname": "test1",
+              "year": "2019",
+              "surname": "test1"
+            },
+            {
+              "firstname": "test2",
+              "year": "2019",
+              "surname": "test2"
+            }
+          ],
+          "from": "2019",
+          "to": "2020",
+          "category": "physics"
+        },
+        "matchingRules": {
+          "$.body.prizes[0].firstname": {
+            "match": "type"
+          },
+          "$.body.prizes[0].year": {
+            "match": "type"
+          },
+          "$.body.prizes[0].surname": {
+            "match": "type"
+          },
+          "$.body.prizes[1].firstname": {
+            "match": "type"
+          },
+          "$.body.prizes[1].year": {
+            "match": "type"
+          },
+          "$.body.prizes[1].surname": {
+            "match": "type"
+          },
+          "$.body.from": {
+            "match": "type"
+          },
+          "$.body.to": {
+            "match": "type"
+          },
+          "$.body.category": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
